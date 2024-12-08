@@ -1,0 +1,781 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    font-family: 'poppins', sans-serif;
+}
+
+:root {
+    --main-color: #6ACFC7;
+    
+}
+html {
+    font-size: 62.5%;
+}
+
+body {
+    color: white ;
+    overflow: hidden;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: #0C1A1A;
+    display: flex;
+    justify-content: space-between;/*espace entre items*/
+    align-items: center;
+    z-index: 100;/*contrôler l'ordre d'empilement des éléments*/
+}
+
+.logo {
+    position: relative;
+    font-size: 3rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+
+/*style pour le navbar*/
+.navbar a {
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 3.5rem;
+    transition: .5s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #00abf0;  
+}
+
+
+section {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 10rem 9% 2rem;
+    background: #0C1A1A;
+    pointer-events: auto;
+}
+
+
+/*section acceuil*/
+.acceuil {
+    height: 100vh;
+    width: 100%;
+    display: flex;/*organisation flexible*/
+    align-items: center;
+    padding: 0 10%;
+}
+
+.acceuil-content {
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.acceuil-content H1 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: left;
+}
+H3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #6ACFC7;
+    text-align: left;
+}
+.acceuil-content p{
+    font-size: 16px;
+    margin: 20px 0 40px;
+}
+
+.acceuil-content .btn-box {
+    display: flex;
+    justify-content: space-between;
+    width: 345px;
+    height: 50px;
+   
+}
+
+.btn-box a{
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100%;
+    background: #6ACFC7;
+    border: 2px solid #6ACFC7;
+    border-radius: 8px;
+    font-size: 19px;
+    color: #0C1A1A;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.btn-box a:hover {
+    color: #6ACFC7;
+
+}
+
+.btn-box a:nth-child(2) {
+    background: transparent;
+    color: #6ACFC7;
+}
+
+.btn-box a:nth-child(2)::before {
+    background:#6ACFC7;
+}
+
+.btn-box a:nth-child(2):hover {
+    color: #0C1A1A;
+}
+
+.btn-box a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    transition: .5s;
+    background: #0C1A1A;
+}
+
+.btn-box a:hover::before {
+    width: 100%;
+ 
+}
+
+.acceuil-sl {
+    position: absolute;
+    bottom: 40px;
+    width: 170px;
+    display: flex;
+  
+  
+}
+
+.acceuil-sl a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border-radius: 50%;
+    font-size: 25px;
+    color: #6ACFC7;
+    text-decoration: none;   
+
+}
+.acceuil-sl a:hover {
+    transform: scale(1.2); 
+}
+
+
+
+/*style pour l'image*/
+.home-img .img-box {
+    position: relative;
+    width: 32vw;
+    height: 32vw;
+    border-radius: 50%;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-left: 7rem; 
+}
+
+
+.home-img .img-box::before,
+.home-img .img-box::after{
+    content: '';/*pas de texte, seulement des styles visuels*/
+    position: absolute;
+    width: 50rem;
+    height: 50rem;
+    background: conic-gradient(transparent, transparent, transparent, var(--main-color)); /*un dégradé circulaire qui part d'un centre*/
+    transform: rotate(0deg); 
+    animation: rotate-border 10s linear infinite; 
+}
+
+.home-img .img-box::after {
+    animation-delay: -5s;
+}
+
+/*animation de l'image*/
+@keyframes rotate-border {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.home-img .img-box .img-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #0C1A1A;
+    border-radius: 50%;
+    border: .01rem #0C1A1A;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.home-img .img-box .img-item img {
+    position: absolute;
+    top: 1.5rem;
+    display: block;
+    width: 85%;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+}
+
+
+
+
+/*section compétences*/
+.heading {
+    padding: 0;
+    font-size: 4.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.heading span {
+    color: #00abf0;
+}
+
+.competences-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+}
+
+.competences-container .competences-box {
+    padding: 1rem 1.5rem ;
+    background: #555;
+    border: .2rem solid #0C1A1A;
+    border-radius: 1rem;
+}
+
+.competences-container .competences-box:hover {
+    border-color: #6ACFC7;
+    transform: scale(1.02);
+}
+
+
+.competences-box .icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.competences-box:hover .icon:not(i) {
+    color: #6ACFC7;
+}
+
+.competences-box .icon i {
+    font-size: 4.5rem;
+    transform: .5s;
+}
+
+
+.competences-box h3 {
+    font-size: 2rem;
+    margin: .5rem 0 2rem;
+}
+
+.competences-box ul li {
+    font-size: 2rem;
+}
+
+
+
+
+/* Section de parcours académique */
+.text-center {
+    font-size: 2rem;
+}
+
+.col-md-6 h4 {
+    color: wheat;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 2rem;
+    opacity: 0; /* Initialement caché */
+    animation: fadeIn 1s forwards; /* Animation de fondu */
+    animation-delay: 0.3s; /* Retarder l'animation pour un effet progressif */
+}
+
+.col-md-6 img {
+    width: 90%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(2, 2, 2, 2);
+    margin: 0 auto;
+    margin-top: 3rem;
+    display: flex;
+    opacity: 0; /* Initialement caché */
+    animation: fadeIn 1s forwards; /* Animation de fondu */
+    animation-delay: 0.6s; /* Retarder l'animation pour un effet progressif */
+}
+
+.col-md-6 img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Animation de fondu */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.col-md-6 img.img-fluid {
+    height: 80%;
+}
+
+/* Animation d'apparition de la section */
+.parcour {
+    opacity: 0; /* Initialement caché */
+    animation: slideIn 1s forwards; /* Animation de glissement */
+    animation-delay: 0.1s;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100px); /* Départ de la gauche */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Effet de transition au survol de l'image */
+.col-md-6 img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
+}
+
+
+
+
+
+
+/*section de stages*/
+.timeline {
+    position: relative;
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.timeline-icon {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    background-color: #6ACFC7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.timeline-content {
+    background-color: beige;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content h3 {
+    color: #6ACFC7;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.timeline-content .Demo {
+    position: absolute; /* Retirer du flux normal et positionner par rapport au parent */
+    top: 10px; /* Espacement du haut */
+    right: 10px; /* Espacement de la droite */
+    padding: 10px 20px;
+    background-color: #6ACFC7;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.timeline-content .Demo:hover {
+    background-color: #58b5a7;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-content .Demo:focus {
+    outline: none;
+    border: 2px solid #6ACFC7;
+    box-shadow: 0 0 5px rgba(106, 207, 199, 0.8);
+}
+
+.timeline-content p {
+    font-size: 1.3em;
+    color: #555;
+    line-height: 1;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.timeline:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 35px;
+    width: 2px;
+    height: 100%;
+    background-color: beige;
+    z-index: 0;
+}
+.timeline-content ul li {
+    color: black;
+    font-weight: normal;
+    font-size:1.3em ;
+}
+
+
+
+/* Style for the video */
+.projet {
+    width: 100%;        /* Make the video take up the full width of its parent */
+    height: 100%;       /* Make the video take up the full height of its parent */
+    object-fit: cover;  /* Ensure the video covers the section while maintaining aspect ratio */
+    border-radius: 10px; /* Optional: add rounded corners */
+}
+
+
+
+
+
+/*section de contact*/
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr; /*defines the structure of a grid container by specifying the widths of the columns*/
+    gap: 3rem;
+}
+
+.contact-container .contact-box:first-child {
+    align-self: center;
+}
+
+.contact-box p {
+    font-size: 1.6rem;
+}
+
+.contact-box .desc {
+    margin: 1.5rem 0 2.5rem;
+}
+
+.contact-box .contact-detail {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.contact-detail a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-detail i {
+    display: inline-flex; 
+    font-size: 3rem;
+    padding: 1.2rem;
+    border-radius: .6rem;
+    margin-right: 1.5rem;   
+}
+
+.contact-detail .detail p:first-child {
+    color: #6ACFC7;
+}
+
+.contact-box form {
+    background: #555;
+    padding: 2.5rem 3.5rem 3.5rem;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.contact-box .field-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.contact-box .field-box input,
+.contact-box .field-box textarea {
+    padding: 1.5rem;
+    background: #0C1A1A;
+    border: .15rem solid #0C1A1A;
+    border-radius: .6rem;
+    font-size: 1.6rem;
+    color: white;
+}
+
+.contact-box .field-box textarea{
+    grid-column: 1 / -1;
+    height: 26rem;
+    resize: none;
+}
+
+.contact-box .field-box input:focus,
+.contact-box .field-box textarea:focus {
+    border-color: #6ACFC7;
+}
+
+.contact-box .btn {
+    margin-top: 2rem;
+    width: 150px;
+    height: 100%;
+    display: inline-block;
+    background-color: #6ACFC7; 
+    color: #0C1A1A;
+    padding: 12px 24px;
+    font-size: 15px; 
+    font-weight: bold; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.contact-box .btn:hover {
+    background-color: #00abf0; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-2px); 
+}
+
+
+
+
+
+
+
+/* section passions*/
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adaptatif sur mobile et bureau */
+    gap: 2rem; /* Espacement entre les cartes */
+    padding: 4rem 5%;
+  
+}
+
+.card {
+    background: #2b2b2b;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Effet de déplacement lors du survol */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+.card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.card:hover img {
+    transform: scale(1.05); /* Effet de zoom sur l'image lors du survol */
+}
+/* Contenu de la carte */
+.card-content {
+    padding: 1.5rem;
+    text-align: center;
+    color: white;
+}
+.card-content h3 {
+    font-size: 2rem;
+    color: #6acfc7; /* Couleur principale */
+    margin-bottom: 1rem;
+}
+.card-content p {
+    font-size: 1.4rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*section quiz*/
+.quiz-section .app{
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    margin: 100px auto 0;
+    border-radius: 10px;
+    padding: 30px;
+    color: black;
+}
+
+.quiz-section .app h1 {
+    font-size: 25px;
+    color: #001e4d;
+    font-weight: 600;
+    border-bottom: 1px solid #333;
+    padding-bottom: 30px;
+}
+
+.quiz {
+    padding: 20px 0;
+}
+
+.quiz h2 {
+    font-size: 18px;
+    color: #001e4d;
+    font-weight: 600;
+}
+
+.btn {
+    background: #fff;
+    color: #222;
+    font-weight: 500;
+    width: 100%;
+    border: 1px solid #222;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn:hover:not([disabled]) {
+    background: #222;
+    color: #fff;
+}
+
+.btn {
+    cursor: no-drop;
+}
+
+#next-btn {
+    background: #001e4d;
+    color: #fff;
+    font-weight: 500;
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none;
+}
+
+.correct {
+    background: #9aeabc;
+}
+
+.incorrect {
+    background: #ff9393;
+}
+
+
+
+/* Par défaut, la couleur de fond */
+body {
+    background-color: #0C1A1A; 
+}
+
+
+@media (max-width: 1000px) {
+    body {
+        background-color: #00abf0; /* Nouvelle couleur de fond quand la largeur est inférieure à 1000px */
+    }
+}
+
+
+
+
